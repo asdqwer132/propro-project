@@ -5,6 +5,7 @@ using TMPro;
 public class TextConverter : MonoBehaviour
 {
     public GameObject contents;
+    public TextChanger word;
     public ProBtnControler btnControler;
     public WordConverter wordConverter;
     public WordCompiler wordCompiler;
@@ -23,6 +24,7 @@ public class TextConverter : MonoBehaviour
         string[] convertedText = wordCompiler.ConvertWord(wordConverter.TextToPhonemes(input.text));
         btnControler.EnPros = convertedText;
         btnControler.SetAllBtn();
+        word.SetText(input.text);
         Close();
         isOpen = true;
     }

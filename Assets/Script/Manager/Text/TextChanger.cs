@@ -9,5 +9,9 @@ public class TextChanger : MonoBehaviour
     {
         text.text = value;
     }
+    public void SetColor(Color color)
+    {
+        text.color = color;
+    }
     public string GetText() { return text.text; }
 }

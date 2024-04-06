@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BottomSheet : ScrollbarMover
 {
     public float middlePoint;
+    public GameObject model;
     float max = 1f;
     float min = 0f;
     private void Update()
@@ -15,6 +16,8 @@ public class BottomSheet : ScrollbarMover
             Debug.Log("asd");
             float target = middlePoint > scrollbar.value ? min : max;
             MoveScrollbar(scrollbar.value, target);
+            model.SetActive(true);
+            if (target == max) model.SetActive(false);
         }
     }
     public void Close()
