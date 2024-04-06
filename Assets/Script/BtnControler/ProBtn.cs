@@ -1,28 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ProBtn : MonoBehaviour
 {
     int index;
-    TextChanger text;
+    //Button thisBtn;
     ProBtnFunc func;
-    public void SetBtn(int value, string textValue, ProBtnFunc controler)
+    protected TextChanger text;
+    public void InitBtn(int value, ProBtnFunc controler)
     {
         func = controler;
         InitBtn();
-        SetValueBtn(value, textValue);
+        index = value;
     }
     public void TrySetModel() { func.SetModel(text.GetText()); }
     #region 버튼 텍스트 설정
     void InitBtn()
     {
         text = GetComponent<TextChanger>();
+       // thisBtn = GetComponent<Button>();
     }
-    void SetValueBtn(int value, string textValue)
+    public void SetBtn(string newText)
     {
-        index = value;
-        text.SetText(textValue);
+        text.SetText(newText);
     }
     #endregion
 

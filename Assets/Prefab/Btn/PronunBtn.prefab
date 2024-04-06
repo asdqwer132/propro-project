@@ -159,10 +159,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: PronunBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 8024062746125758575, guid: a828f354da5230140bf1cb23d1553c1e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024062746125758575, guid: a828f354da5230140bf1cb23d1553c1e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989656472393248017, guid: a828f354da5230140bf1cb23d1553c1e,
+        type: 3}
+      propertyPath: m_text
+      value: ae
+      objectReference: {fileID: 0}
     - target: {fileID: 8989656472393248017, guid: a828f354da5230140bf1cb23d1553c1e,
         type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8989656472393248017, guid: a828f354da5230140bf1cb23d1553c1e,
         type: 3}
@@ -172,7 +187,17 @@ PrefabInstance:
     - target: {fileID: 8989656472393248017, guid: a828f354da5230140bf1cb23d1553c1e,
         type: 3}
       propertyPath: m_fontSizeMax
-      value: 40
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989656472393248017, guid: a828f354da5230140bf1cb23d1553c1e,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989656472393248017, guid: a828f354da5230140bf1cb23d1553c1e,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

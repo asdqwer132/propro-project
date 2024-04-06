@@ -46,7 +46,7 @@ public class RunJets : MonoBehaviour
     {
         LoadModel();
         ReadDictionary();
-        TextToSpeech();
+        //TextToSpeech();
     }
 
     void LoadModel()
@@ -55,7 +55,7 @@ public class RunJets : MonoBehaviour
         engine = WorkerFactory.CreateWorker(BackendType.GPUCompute, model);
     }
 
-    void TextToSpeech()
+    protected void TextToSpeech()
     {
         string ptext;
         if (hasPhenomeDictionary)
@@ -195,13 +195,13 @@ public class RunJets : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TextToSpeech();
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        TextToSpeech();
+    //    }
+    //}
 
     private void OnDestroy()
     {
