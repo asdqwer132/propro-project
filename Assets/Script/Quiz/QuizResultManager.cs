@@ -9,18 +9,25 @@ public class QuizResultManager : MonoBehaviour
     public GameObject quizPopup;
     public GameObject resultPopup;
     public TextChanger correct;
-    public TextChanger total;
-
+    public ImageChanger[] results;
+    public void OffPop()
+    {
+        resultPopup.SetActive(false);
+    }
     public void CancelPopup()
     {
         SetResultPop(false);
     }
-    public void SetResult(int c,int t)
+    public void SetResult(int c,int t,bool[] anwerList)
     {
         SetResultPop(true);
-        correct.SetText("" + c);
-        total.SetText("" + t);
-        Debug.Log((float)c / (float)t);
+        circleFillers.InitCircle(0);
+        correct.SetText("0");
+        for (int i = 0; i < anwerList.Length; i++)
+        {
+            if (anwerList[i]) results[i].ChangeColor(Color.green);
+            else results[i].ChangeColor(Color.red);
+        }
         StartCoroutine(chargeCircle((float)c/(float)t));
     }
     IEnumerator chargeCircle(float total)
@@ -29,6 +36,7 @@ public class QuizResultManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.01f);
             circleFillers.SetCircle(fv);
+            correct.SetText("" + (int)(circleFillers.GetCircle() * 100));
         }
     }
     void SetResultPop(bool isTrue)

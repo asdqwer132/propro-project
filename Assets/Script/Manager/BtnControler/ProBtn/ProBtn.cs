@@ -7,7 +7,7 @@ public class ProBtn : MonoBehaviour
     int index;
     //Button thisBtn;
     ProBtnFunc func;
-    protected TextChanger text;
+    public TextChanger text;
     public void InitBtn(int value, ProBtnFunc controler)
     {
         func = controler;
@@ -23,7 +23,6 @@ public class ProBtn : MonoBehaviour
     }
     public void SetBtn(string newText)
     {
-        Debug.Log(gameObject.name);
         text.SetText(newText);
     }
     #endregion

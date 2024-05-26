@@ -6,10 +6,10 @@ public class QuizCreater
 {
     WordCompiler wordCompiler = new WordCompiler();
     RandomManager random = new RandomManager();
-    public QuizInfo GetNewRandomQuiz()
+    public QuizInfo GetNewRandomQuiz(quizType quizType)
     {
 
-        quizType quizType = random.GetRandomQuizType();
+        //quizType quizType = random.GetRandomQuizType();
         WordDeck wordDeck = new WordDeck(wordCompiler.GetAllIPA());
         string[] answerList = new string[4];
         for(int i = 0; i < answerList.Length; i++)

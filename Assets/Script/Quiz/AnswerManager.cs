@@ -17,7 +17,7 @@ public class AnswerManager : MonoBehaviour
     public bool CheckAnswer(int index, int correctIndex)
     {
         answer.gameObject.SetActive(true);
-        answeList[index].SelectBtn();
+        //answeList[index].SelectBtn();
         answeList[correctIndex].SetFrameColor(true);
         if (index == correctIndex)
         {
