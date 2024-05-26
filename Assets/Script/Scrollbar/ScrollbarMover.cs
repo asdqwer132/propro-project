@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ScrollbarMover : MonoBehaviour
 {
-    public Scrollbar scrollbar;
+    public Slider scrollbar;
     float startPos;
     float currentPos;
     float targetPos;
