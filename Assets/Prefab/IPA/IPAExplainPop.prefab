@@ -1677,7 +1677,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3838079475392735909}
+  - {fileID: 5088484809631947992}
   - {fileID: 6969647383660289699}
   - {fileID: 1383959638020788213}
   - {fileID: 6659770577877737440}
@@ -4554,7 +4554,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
---- !u!1001 &3874077599982173782
+--- !u!1001 &5052203183114881067
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4625,17 +4625,17 @@ PrefabInstance:
     - target: {fileID: 36281682776315123, guid: 1535a8112f90b6440b3ddc79c98d103a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 36281682776315123, guid: 1535a8112f90b6440b3ddc79c98d103a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 36281682776315123, guid: 1535a8112f90b6440b3ddc79c98d103a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 36281682776315123, guid: 1535a8112f90b6440b3ddc79c98d103a,
         type: 3}
@@ -4662,11 +4662,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1089970871683066486, guid: 1535a8112f90b6440b3ddc79c98d103a,
-        type: 3}
-      propertyPath: rotateBtnSpeed
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 8687199497809346630, guid: 1535a8112f90b6440b3ddc79c98d103a,
         type: 3}
       propertyPath: m_Name
@@ -4677,11 +4672,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1535a8112f90b6440b3ddc79c98d103a, type: 3}
---- !u!224 &3838079475392735909 stripped
+--- !u!224 &5088484809631947992 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 36281682776315123, guid: 1535a8112f90b6440b3ddc79c98d103a,
     type: 3}
-  m_PrefabInstance: {fileID: 3874077599982173782}
+  m_PrefabInstance: {fileID: 5052203183114881067}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5415884761776932785
 PrefabInstance:
