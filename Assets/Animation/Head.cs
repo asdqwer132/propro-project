@@ -33,7 +33,7 @@ public class Head : MonoBehaviour
     }
 
     //발음기호 배열에 해당하는 애니메이션을 순차적으로 재생
-    void PlayAnimations()
+    public void PlayAnimations()
     {
         //실행할 발음기호가 없으면 종료
         if (IpaArray.Length == 0)

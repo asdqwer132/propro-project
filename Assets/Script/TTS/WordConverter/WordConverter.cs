@@ -6,7 +6,7 @@ using System.IO;
 public class WordConverter : MonoBehaviour
 {
     bool hasPhenomeDictionary = true;
-
+    WordCompiler wordCompiler = new WordCompiler();
     readonly string[] phonemes = new string[] {
         "<blank>", "<unk>", "AH0", "N", "T", "D", "S", "R", "L", "DH", "K", "Z", "IH1",
         "IH0", "M", "EH1", "W", "P", "AE1", "AH1", "V", "ER0", "F", ",", "AA1", "B",
@@ -84,7 +84,7 @@ public class WordConverter : MonoBehaviour
         {
             output[i] = r[i];
         }
-        return output;
+        return wordCompiler.ConvertWord(output);
     }
     public string DecodeWord(string word)
     {

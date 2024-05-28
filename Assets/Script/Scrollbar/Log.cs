@@ -11,6 +11,13 @@ public class Log : MonoBehaviour
     public string GetLog(int index) { if (logs.Length > currentLogCnt) return logs[index].GetText(); return "none"; }
     public void AddLog(string value)
     {
+        for(int i = 0; i < logs.Length; i++)
+        {
+            if(logs[i].GetText() == value)
+            {
+                return;
+            }
+        }
         if(logs.Length > currentLogCnt)
         {
             logs[currentLogCnt].gameObject.SetActive(true);

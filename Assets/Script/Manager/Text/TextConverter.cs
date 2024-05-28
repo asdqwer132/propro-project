@@ -7,11 +7,10 @@ public class TextConverter : MonoBehaviour
     public GameObject contents;
     public TextChanger word;
     public ProBtnControler btnControler;
-    public WordConverter wordConverter;
-    WordCompiler wordCompiler = new WordCompiler();
     public TMP_InputField inputField;
     public BottomSheet bottomSheet;
     public Log log;
+    public WordConverter wordConverter;
     public void Start()
     {
 
@@ -37,12 +36,8 @@ public class TextConverter : MonoBehaviour
     }
     void Convert(string value)
     {
-        string[] convertedText = wordCompiler.ConvertWord(wordConverter.TextToPhonemes(value));
+        string[] convertedText = wordConverter.TextToPhonemes(value);
         btnControler.EnPros = convertedText;
-        //for (int i = 0; i < convertedText.Length; i++)
-        //{
-        //    Debug.Log(convertedText[i]);
-        //}
         btnControler.SetAllBtn();
         word.SetText(value);
         Close();

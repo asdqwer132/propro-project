@@ -61,7 +61,6 @@ public class RunJets : MonoBehaviour
         if (hasPhenomeDictionary)
         {
             ptext = TextToPhonemes(inputText);
-            Debug.Log(ptext);
         }
         else
         {
