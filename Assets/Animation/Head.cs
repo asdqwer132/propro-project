@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animation))]
+[ExecuteAlways, RequireComponent(typeof(Animation))]
 public class Head : MonoBehaviour
 {
     //재생할 발음기호들
@@ -11,8 +11,11 @@ public class Head : MonoBehaviour
     //음성 재생 시간
     public float Duration = 1f;
 
-    //캐싱된 애니메이션 컴포넌트
+    //캐싱된 컴포넌트
+    SkinnedMeshRenderer headRenderer;
     Animation anim;
+    [SerializeField]
+    Transform crossSection;
     //인접한 애니메이션 클립간 블렌딩 시간
     [SerializeField]
     float blendingDuration = 0.1f;
@@ -20,6 +23,7 @@ public class Head : MonoBehaviour
     void Start()
     {
         //컴포넌트 캐싱
+        headRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         anim = GetComponent<Animation>();
     }
 
@@ -29,6 +33,17 @@ public class Head : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             PlayAnimations();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        //모든 머터리얼에 절단면 상태 전달
+        Vector3 normal = crossSection.right;
+        for (int i = 0; i < headRenderer.sharedMaterials.Length; i++)
+        {
+            headRenderer.sharedMaterials[i].SetVector("_Normal", normal);
+            headRenderer.sharedMaterials[i].SetFloat("_Distance", -Vector3.Dot(normal, crossSection.position));
         }
     }
 
