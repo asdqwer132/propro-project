@@ -8,7 +8,7 @@ public class ProBtnControlerAllIPA : ProBtnControler
     public string fileName;
     void Start()
     {
-        IPA tmp = jsonManager.Convert(fileName);
+        IPA tmp = jsonManager.Convert<IPA>(fileName);
         string[] EnProsList = tmp.IPAList.ToArray();
 
         //Debug.Log(EnProsList[0]);

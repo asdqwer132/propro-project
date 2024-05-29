@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CompareBtn : MonoBehaviour
 {
+    [TextArea]
     public string explain;
     public string IPA1;
     public string IPA2;

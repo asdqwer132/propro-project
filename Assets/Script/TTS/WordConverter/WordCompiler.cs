@@ -171,7 +171,7 @@ public class WordCompiler
         {
             if (!allIpa.Contains(ConvertPhonemes(value[i])))
             {
-                Debug.Log("ipa : " + value[i] + "/");
+                //Debug.Log("ipa : " + value[i] + "/");
                 allIpa.Add(ConvertPhonemes(value[i]));
             }
            // else Debug.Log("here : " + value[i]);

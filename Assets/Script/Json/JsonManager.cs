@@ -5,13 +5,25 @@ public class IPA
 {
     public List<string> IPAList;
 }
+[System.Serializable]
+public class Explain
+{
+    public List<IPAEx> IPAEx;
+}
+[System.Serializable]
+public class IPAEx
+{
+    public string ipa;
+    public List<string> explain;
+}
 public class JsonManager
 {
     JsonParser jsonParser = new JsonParser();
     
-    public IPA Convert(string fileName)
+    public T Convert<T>(string fileName)
     {
-        IPA ipa = jsonParser.LoadJson<IPA>("C:/Users/LG/unity/propro-project/Assets/Data/" + fileName + ".Json");
+        //Debug.Log(Application.dataPath + "../data" + fileName + ".Json");
+        T ipa = jsonParser.LoadJson<T>(Application.dataPath + "/data/" + fileName + ".Json");
         return ipa;
     }
 }

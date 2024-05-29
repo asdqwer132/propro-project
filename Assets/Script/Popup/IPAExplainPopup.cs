@@ -10,10 +10,11 @@ public class IPAExplainPopup : Popup
     public SimpleScrollSnap scrollSnap;
     public TextChanger currentIPA;
     public TextChangerList explainText;
+
     public void SetIPA(string ipa, string[] explains)
     {
         currentIPA.SetText(ipa);
-        explainText.SetTextArray(explains);
+        explainText.SetLTextArray(explains);
         for (int i = 0; i < lists.Length; i++)
         {
             contents[i].transform.SetParent(parents[0].transform);
