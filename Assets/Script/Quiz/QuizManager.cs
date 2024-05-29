@@ -8,8 +8,13 @@ public class QuizManager : MonoBehaviour
     public QuizResultManager resultManager;
     public AnswerManager answerManager;
     public TextLegucyChanger quizTitle;
+    public TextChanger fakeTextForPlayTTSorAnimation;
     public GameObject quizSelect;
     public GameObject quizMain;
+    public GameObject soundQuiz;
+    public GameObject animationsQuiz;
+    TTSManager tts;
+    ModelAnimationControler animationControler;
     QuizCreater quizCreater = new QuizCreater();
     List<QuizInfo> currentQuizList = new List<QuizInfo>();
     List<QuizInfo> wrongQuizList = new List<QuizInfo>();
@@ -21,7 +26,11 @@ public class QuizManager : MonoBehaviour
     bool isRetry = false;
     private void Start()
     {
-
+        ManagerFInder fInder = new ManagerFInder();
+        tts = fInder.GetComponetWithTag<TTSManager>("manager");
+        animationControler = fInder.GetComponetWithTag<ModelAnimationControler>("manager");
+        if (tts == null) Debug.Log("tts");
+        if (animationControler == null) Debug.Log("ani");
         //resultManager.SetResult(2, 5);
         RestartQuiz();
     }
@@ -49,8 +58,18 @@ public class QuizManager : MonoBehaviour
     }
     public void SetQuizType(int index)
     {
-        if (index == 0) quizType = quizType.animation;
-        if (index == 1) quizType = quizType.sound;
+        if (index == 0)
+        {
+            quizType = quizType.animation;
+            soundQuiz.SetActive(false);
+            animationsQuiz.SetActive(true);
+        }
+        if (index == 1)
+        {
+            quizType = quizType.sound;
+            soundQuiz.SetActive(true);
+            animationsQuiz.SetActive(false);
+        }
         quizSelect.SetActive(false);
         quizMain.SetActive(true);
         InitQuiz();
@@ -65,12 +84,19 @@ public class QuizManager : MonoBehaviour
         currentQuiz = null;
         SetQuiz();
     }
+    void PlaySorA(string anwser)
+    {
+        fakeTextForPlayTTSorAnimation.SetText(anwser);
+        if (quizType == quizType.animation) animationControler.PlayIPAAnimation();
+        if (quizType == quizType.sound) tts.SpeakIPA();
+    }
     void SetQuiz(QuizInfo newQuiz)
     {
         if (isRetry)
         {
             quizTitle.SetText(newQuiz.GetFixedQuizTitle());
             answerManager.SetAnswer(newQuiz.answerList);
+            PlaySorA(newQuiz.answer);
         }
     }
     void SetQuiz()
@@ -82,6 +108,7 @@ public class QuizManager : MonoBehaviour
             currentQuizList.Add(newQuiz);
             quizTitle.SetText(newQuiz.GetFixedQuizTitle());
             answerManager.SetAnswer(newQuiz.answerList);
+            PlaySorA(newQuiz.answer);
         }
     }
     void EndQuiz()

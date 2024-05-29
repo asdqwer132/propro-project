@@ -46,7 +46,7 @@ public class RunJets : MonoBehaviour
     {
         LoadModel();
         ReadDictionary();
-        TextToSpeech();
+        //TextToSpeech();
     }
 
     void LoadModel()

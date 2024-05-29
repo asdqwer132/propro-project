@@ -39,7 +39,9 @@ public class TextConverter : MonoBehaviour
         string[] convertedText = wordConverter.TextToPhonemes(value);
         btnControler.EnPros = convertedText;
         btnControler.SetAllBtn();
+        Debug.Log("here" + value);
         word.SetText(value);
+        Debug.Log("here" + word.GetText());
         Close();
     }
     void Close()
