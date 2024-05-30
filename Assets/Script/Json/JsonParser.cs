@@ -1,6 +1,7 @@
 
 using System.IO;
 using Newtonsoft.Json;
+using UnityEngine;
 public class JsonParser
 {
     public void SaveJson<T>(T saveData, string path)
@@ -11,8 +12,8 @@ public class JsonParser
     }
     public T LoadJson<T>(string path)
     {
-        string loadJson = File.ReadAllText(path);
-        T data = JsonToOject<T>(loadJson);
+        var loadJson = Resources.Load<TextAsset>(path);
+        T data = JsonToOject<T>(loadJson.ToString());
         return data;
 
     }

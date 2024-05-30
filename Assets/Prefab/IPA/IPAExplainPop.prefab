@@ -4125,6 +4125,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5911420442437593826, guid: 1535a8112f90b6440b3ddc79c98d103a,
+        type: 3}
+      propertyPath: rotateBtnSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911420442437593826, guid: 1535a8112f90b6440b3ddc79c98d103a,
+        type: 3}
+      propertyPath: rotateDragSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8687199497809346630, guid: 1535a8112f90b6440b3ddc79c98d103a,
         type: 3}
       propertyPath: m_Name

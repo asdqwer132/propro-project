@@ -1541,51 +1541,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1507318477083654488, guid: 1535a8112f90b6440b3ddc79c98d103a,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 1507318477083654488, guid: 1535a8112f90b6440b3ddc79c98d103a,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 1507318477083654488, guid: 1535a8112f90b6440b3ddc79c98d103a,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 1507318477083654488, guid: 1535a8112f90b6440b3ddc79c98d103a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -55
-      objectReference: {fileID: 0}
-    - target: {fileID: 1507318477083654488, guid: 1535a8112f90b6440b3ddc79c98d103a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1507318477083654488, guid: 1535a8112f90b6440b3ddc79c98d103a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1507318477083654488, guid: 1535a8112f90b6440b3ddc79c98d103a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1507318477083654488, guid: 1535a8112f90b6440b3ddc79c98d103a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1507318477083654488, guid: 1535a8112f90b6440b3ddc79c98d103a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2091146507275007039, guid: 1535a8112f90b6440b3ddc79c98d103a,
         type: 3}
       propertyPath: m_Layer
@@ -3982,7 +3937,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 978978754}
         m_TargetAssemblyTypeName: TTSManager, Assembly-CSharp
-        m_MethodName: SpeakWord
+        m_MethodName: SpeakIPA
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8142,6 +8097,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TTSManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126145762216529877, guid: 96f3d4ce4dcbb8141bf505a9b41e629e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4707506160398267275, guid: 96f3d4ce4dcbb8141bf505a9b41e629e,
         type: 3}

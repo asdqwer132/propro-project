@@ -22,8 +22,8 @@ public class JsonManager
     
     public T Convert<T>(string fileName)
     {
-        //Debug.Log(Application.dataPath + "../data" + fileName + ".Json");
-        T ipa = jsonParser.LoadJson<T>(Application.dataPath + "/data/" + fileName + ".Json");
+        //Debug.Log(Application.persistentDataPath + "../data" + fileName + ".Json");
+        T ipa = jsonParser.LoadJson<T>("data/" + fileName);
         return ipa;
     }
 }

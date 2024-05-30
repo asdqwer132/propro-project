@@ -21,7 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Compare.unity
     guid: 1c08056a535e38a4cb9b4a4c60f7ab19
   m_configObjects:
-    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 9c0dfcfdd38eda34fabd1cc11af8b559,
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 235097ca987e43940a8838cdcc337b63,
       type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
+      guid: dd4e4a2fc9a9f4248af6156bbbd642af, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 9c77d977b63f00c418b25338d1aa4b28, type: 2}
