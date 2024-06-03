@@ -1,7 +1,10 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Sentis;
 using System.IO;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 //                      Jets Text-To-Speech Inference
 //                      =============================
@@ -15,6 +18,11 @@ using System.IO;
 
 public class RunJets : MonoBehaviour
 {
+    [SerializeField]
+    AssetReferenceT<ModelAsset> jetsModelFile;
+    [SerializeField]
+    AssetReferenceT<TextAsset> phenomeDictionaryFile;
+
     public string inputText = "Once upon a time, there lived a girl called Alice. She lived in a house in the woods.";
     //string inputText = "The quick brown fox jumped over the lazy dog";
     //string inputText = "There are many uses of the things she uses!";
@@ -51,7 +59,14 @@ public class RunJets : MonoBehaviour
 
     void LoadModel()
     {
-        var model = ModelLoader.Load(Path.Join(Application.streamingAssetsPath, "jets-text-to-speech.sentis"));
+        var handle = jetsModelFile.LoadAssetAsync<ModelAsset>();
+        handle.WaitForCompletion();
+        if (handle.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.LogError("Cannot open jetsModelFile");
+            return;
+        }
+        var model = ModelLoader.Load(handle.Result);
         engine = WorkerFactory.CreateWorker(BackendType.GPUCompute, model);
     }
 
@@ -75,8 +90,17 @@ public class RunJets : MonoBehaviour
     void ReadDictionary()
     {
         if (!hasPhenomeDictionary) return;
-        string[] words = File.ReadAllLines(Path.Join(Application.streamingAssetsPath, "phoneme_dict.txt"));
-        for (int i = 0; i < words.Length; i++)
+
+        var handle = phenomeDictionaryFile.LoadAssetAsync<TextAsset>();
+        handle.WaitForCompletion();
+        if(handle.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.LogError("Cannot open phenomeDictionaryFile");
+            return;
+        }
+
+        string[] words = handle.Result.text.Split("\n");
+        for (int i = 0; i < words.Length - 1; i++)
         {
             string s = words[i];
             string[] parts = s.Split();

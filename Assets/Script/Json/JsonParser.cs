@@ -2,6 +2,8 @@
 using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 public class JsonParser
 {
     public void SaveJson<T>(T saveData, string path)
@@ -12,8 +14,13 @@ public class JsonParser
     }
     public T LoadJson<T>(string path)
     {
-        var loadJson = Resources.Load<TextAsset>(path);
-        T data = JsonToOject<T>(loadJson.ToString());
+        var handle = Addressables.LoadAssetAsync<TextAsset>(path);
+        handle.WaitForCompletion();
+        if (handle.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.LogError("Cannot open path");
+        }
+        T data = JsonToOject<T>(handle.Result.text);
         return data;
 
     }

@@ -17,13 +17,13 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 391c7d8e3bd7b504eae1910feaaaceeb
   m_SerializeEntries:
-  - m_GUID: ed629ce6906935242945a5800f22c724
-    m_Address: Assets/Data/EnC.Json
+  - m_GUID: 4f49a10a22c98ff498764cd40a299035
+    m_Address: Assets/Data/EnV.Json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4f49a10a22c98ff498764cd40a299035
-    m_Address: Assets/Data/EnV.Json
+  - m_GUID: ed629ce6906935242945a5800f22c724
+    m_Address: Assets/Data/EnC.Json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -45,6 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef91370d30560814cbfb6053f453cc62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jetsModelFile:
+    m_AssetGUID: 92f03630577dd3c48bb0825f2cbba721
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  phenomeDictionaryFile:
+    m_AssetGUID: 6a6f74f6a3826734c86894f93525e71c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   inputText: 
   inputField: {fileID: 0}
   text: {fileID: 0}

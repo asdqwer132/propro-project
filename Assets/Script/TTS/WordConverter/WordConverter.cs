@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Sentis;
 using System.IO;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class WordConverter : MonoBehaviour
 {
@@ -33,8 +35,16 @@ public class WordConverter : MonoBehaviour
     void ReadDictionary()
     {
         if (!hasPhenomeDictionary) return;
-        string[] words = File.ReadAllLines(Application.streamingAssetsPath + "/phoneme_dict.txt");
-        for (int i = 0; i < words.Length; i++)
+
+        var handle = Addressables.LoadAssetAsync<TextAsset>("Assets/Data/phoneme_dict.txt");
+        handle.WaitForCompletion();
+        if (handle.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.LogError("Cannot open phoneme_dict.txt");
+            return;
+        }
+        string[] words = handle.Result.text.Split("\n");
+        for (int i = 0; i < words.Length - 1; i++)
         {
             string s = words[i];
             string[] parts = s.Split();

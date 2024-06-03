@@ -19,11 +19,11 @@ public class IPAEx
 public class JsonManager
 {
     JsonParser jsonParser = new JsonParser();
-    
+
     public T Convert<T>(string fileName)
     {
         //Debug.Log(Application.persistentDataPath + "../data" + fileName + ".Json");
-        T ipa = jsonParser.LoadJson<T>("data/" + fileName);
+        T ipa = jsonParser.LoadJson<T>(fileName);
         return ipa;
     }
 }

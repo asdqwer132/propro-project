@@ -10,7 +10,7 @@ public class ModelSelector : MonoBehaviour
     public Explain ipaEx;
     private void Start()
     {
-        ipaEx = jsonManager.Convert<Explain>("IPAEx"); 
+        ipaEx = jsonManager.Convert<Explain>("Assets/Data/IPAEx.Json");
     }
     public void ResetModel()
     {
