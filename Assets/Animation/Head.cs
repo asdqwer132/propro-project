@@ -26,6 +26,8 @@ public class Head : MonoBehaviour
         //ÄÄÆ÷³ÍÆ® Ä³½Ì
         headRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         animator = GetComponent<Animator>();
+        animator.SetFloat("Age", PlayerPrefs.GetFloat("Age"));
+        animator.SetFloat("Gender", PlayerPrefs.GetFloat("Gender"));
         anim = GetComponent<Animation>();
         //for (int i = 0; i < IpaArray.Length; i++)
         //{

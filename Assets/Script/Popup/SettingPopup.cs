@@ -29,14 +29,18 @@ public class SettingPopup : Popup
         if (age != scrollSnapAge.SelectedPanel)
         {
             age = scrollSnapAge.SelectedPanel;
-            Debug.Log("age" + ((age / 40) * 2 - 1));
-            animator.SetFloat("Age", (age / 40) * 2 - 1);
+            float normalizedAge = (age / 40) * 2 - 1;
+            Debug.Log("age" + normalizedAge);
+            animator.SetFloat("Age", normalizedAge);
+            PlayerPrefs.SetFloat("Age", normalizedAge);
         }
         if (gender != scrollSnapGender.SelectedPanel)
         {
             gender = scrollSnapGender.SelectedPanel;
-            Debug.Log("gen" + (gender * 2 - 1));
-            animator.SetFloat("Gender", gender * 2 - 1);
+            float normalizedGender = gender * 2 - 1;
+            Debug.Log("gen" + normalizedGender);
+            animator.SetFloat("Gender", normalizedGender);
+            PlayerPrefs.SetFloat("Age", normalizedGender);
         }
     }
     public void OpenSet()
