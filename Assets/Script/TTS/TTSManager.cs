@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+[RequireComponent(typeof(AudioSource))]
 public class TTSManager : RunJets
 {
     public TMP_InputField inputField;
