@@ -5336,6 +5336,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6761357205576450566, guid: 96f3d4ce4dcbb8141bf505a9b41e629e,
         type: 3}
+      propertyPath: head
+      value: 
+      objectReference: {fileID: 423381351}
+    - target: {fileID: 6761357205576450566, guid: 96f3d4ce4dcbb8141bf505a9b41e629e,
+        type: 3}
       propertyPath: text
       value: 
       objectReference: {fileID: 423381350}
@@ -6905,6 +6910,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1242231625229683233, guid: b3a80d2e82cd3964b88cf7d304117802,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1383959638020788213, guid: b3a80d2e82cd3964b88cf7d304117802,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -7063,6 +7073,11 @@ PrefabInstance:
     - target: {fileID: 3280232856873827966, guid: b3a80d2e82cd3964b88cf7d304117802,
         type: 3}
       propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383792828175277718, guid: b3a80d2e82cd3964b88cf7d304117802,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3629734585326467357, guid: b3a80d2e82cd3964b88cf7d304117802,
@@ -7545,6 +7560,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &423381351 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3930226094311216509, guid: b3a80d2e82cd3964b88cf7d304117802,
+    type: 3}
+  m_PrefabInstance: {fileID: 423381349}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a9cf4cd32c0bc4d8c28751d4fec1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &423381353 stripped

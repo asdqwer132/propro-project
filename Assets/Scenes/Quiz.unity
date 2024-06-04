@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1124,6 +1124,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6761357205576450566, guid: 96f3d4ce4dcbb8141bf505a9b41e629e,
+        type: 3}
+      propertyPath: head
+      value: 
+      objectReference: {fileID: 1605044657}
     - target: {fileID: 6761357205576450566, guid: 96f3d4ce4dcbb8141bf505a9b41e629e,
         type: 3}
       propertyPath: text
@@ -5185,6 +5190,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6278091625683698186, guid: 1535a8112f90b6440b3ddc79c98d103a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559482880776197821, guid: 1535a8112f90b6440b3ddc79c98d103a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8687199497809346630, guid: 1535a8112f90b6440b3ddc79c98d103a,
         type: 3}
       propertyPath: m_Name
@@ -5211,6 +5226,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1605044655}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1605044657 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8113234495719415126, guid: 1535a8112f90b6440b3ddc79c98d103a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1605044655}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a9cf4cd32c0bc4d8c28751d4fec1ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1644625875
 GameObject:
   m_ObjectHideFlags: 0

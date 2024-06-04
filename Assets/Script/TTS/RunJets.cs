@@ -70,21 +70,9 @@ public class RunJets : MonoBehaviour
         engine = WorkerFactory.CreateWorker(BackendType.GPUCompute, model);
     }
 
-    public void TextToSpeech()
+    public float[] TextToSpeech()
     {
-        string ptext;
-        if (hasPhenomeDictionary)
-        {
-            ptext = TextToPhonemes(inputText);
-        }
-        else
-        {
-            //If we have no phenome dictionary we can use one of these examples:
-            ptext = "DH AH0 K W IH1 K B R AW1 N F AA1 K S JH AH1 M P S OW1 V ER0 DH AH0 L EY1 Z IY0 D AO1 G .";
-            //ptext = "W AH1 N S AH0 P AA1 N AH0 T AY1 M , AH0 F R AA1 G M EH1 T AH0 P R IH1 N S EH0 S . DH AH0 F R AA1 G K IH1 S T DH AH0 P R IH1 N S EH0 S AH0 N D B IH0 K EY1 M AH0 P R IH1 N S .";
-            //ptext = "D UW1 P L AH0 K EY2 T";
-        }
-        DoInference(ptext);
+        return DoInference(TextToPhonemes(inputText));
     }
 
     void ReadDictionary()
@@ -186,7 +174,7 @@ public class RunJets : MonoBehaviour
         return tokens;
     }
 
-    public void DoInference(string ptext)
+    public float[] DoInference(string ptext)
     {
         int[] tokens = GetTokens(ptext);
 
@@ -203,6 +191,7 @@ public class RunJets : MonoBehaviour
         clip.SetData(samples, 0);
 
         Speak();
+        return samples;
     }
     private void Speak()
     {

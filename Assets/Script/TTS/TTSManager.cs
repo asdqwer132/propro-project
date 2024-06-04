@@ -6,19 +6,25 @@ public class TTSManager : RunJets
 {
     public TMP_InputField inputField;
     public TextMeshProUGUI text;
+    public Head head;
+    const float samplingRate = 22050;
+
     public void SpeakWord()
     {
         inputText = inputField.text;
-        TextToSpeech();
+        float[] audio = TextToSpeech();
+        head.Duration = audio.Length / samplingRate;
     }
     public void SpeakIPA()
     {
         inputText = text.text;
-        TextToSpeech();
+        float[] audio = TextToSpeech();
+        head.Duration = audio.Length / samplingRate;
     }
     public void SpeakText(string value)
     {
         inputText = value;
-        TextToSpeech();
+        float[] audio = TextToSpeech();
+        head.Duration = audio.Length / samplingRate;
     }
 }
