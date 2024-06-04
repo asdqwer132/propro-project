@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WordCompiler
 {
-    Dictionary<string, string> dict = new Dictionary<string, string>()
+    Dictionary<string, string> dictionary = new Dictionary<string, string>()
     {
 #region 원본 발음
         //{ "AA0", "ɑ"},
@@ -120,7 +120,6 @@ public class WordCompiler
         { "IY2", "i"},
         { "JH", "dʒ"},
         { "K", "k"},
-        { "L", "l"},
         { "M", "m"},
         { "N", "n"},
         { "NG", "ŋ"},
@@ -147,12 +146,14 @@ public class WordCompiler
         { "W", "w"},
         { "Y", "j"},
         { "Z", "z"},
-        { "ZH", "ʒ"}
+        { "ZH", "ʒ"},
+        { "L", "l" }
     };
     public List<string> GetAllIPA()
     {
         List<string> newList = new List<string>();
-        foreach (KeyValuePair<string,string> entry in dict){
+        foreach (KeyValuePair<string, string> entry in dictionary)
+        {
             newList.Add(entry.Value);
         }
         return newList;
@@ -166,18 +167,15 @@ public class WordCompiler
     //}
     public string[] ConvertWord(string[] value)
     {
+       // Test();
         List<string> allIpa = new List<string>();
-        for(int i = 0; i < value.Length; i++)
+        for (int i = 0; i < value.Length; i++)
         {
-            if (!allIpa.Contains(ConvertPhonemes(value[i])))
-            {
-                //Debug.Log("ipa : " + value[i] + "/");
-                allIpa.Add(ConvertPhonemes(value[i]));
-            }
-           // else Debug.Log("here : " + value[i]);
+            string trimValue = value[i].Trim();
+            allIpa.Add(ConvertPhonemes(trimValue));
         }
         string[] output = new string[allIpa.Count];
-        for(int i = 0; i < allIpa.Count; i++)
+        for (int i = 0; i < allIpa.Count; i++)
         {
             output[i] = allIpa[i];
         }
@@ -186,7 +184,7 @@ public class WordCompiler
     }
     string ConvertPhonemes(string value)
     {
-        if (!dict.ContainsKey(value)) return "none";
-        return dict[value];
+        if (!dictionary.ContainsKey(value)) return "none";
+        return dictionary[value];
     }
 }
