@@ -112,7 +112,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Distance: 9.634848
+    - _Distance: 9.634912
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _Emission: -0.17
@@ -137,13 +137,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BackColor: {r: 0, g: 1, b: 0.1530397, a: 1}
-    - _BackShadowColor: {r: 0, g: 1, b: 0.15294118, a: 1}
+    - _BackColor: {r: 0.15970986, g: 0.9150943, b: 0.27173728, a: 1}
+    - _BackShadowColor: {r: 0.21444464, g: 0.5754717, b: 0.27017367, a: 1}
     - _BaseColor: {r: 0, g: 1, b: 0.06795335, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CrossSectionColor: {r: NaN, g: NaN, b: NaN, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FrontColor: {r: 0.3220788, g: 1, b: 0.25943398, a: 0}
+    - _FrontColor: {r: 0.32207876, g: 1, b: 0.25943395, a: 1}
     - _Normal: {r: -0.00000011920929, g: 0, b: 1.0000001, a: 0}
     - _Plane: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
