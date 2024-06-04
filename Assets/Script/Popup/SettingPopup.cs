@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using DanielLochner.Assets.SimpleScrollSnap;
+using System;
 public class SettingPopup : Popup
 {
     public GameObject main;
@@ -28,14 +29,14 @@ public class SettingPopup : Popup
         if (age != scrollSnapAge.SelectedPanel)
         {
             age = scrollSnapAge.SelectedPanel;
-            Debug.Log("afe" + (0.02439f * age));
-            animator.SetFloat("Age", (0.02439f * age));
+            Debug.Log("age" + ((age / 40) * 2 - 1));
+            animator.SetFloat("Age", (age / 40) * 2 - 1);
         }
         if (gender != scrollSnapGender.SelectedPanel)
         {
             gender = scrollSnapGender.SelectedPanel;
-            Debug.Log("gen" + (gender * 100));
-            animator.SetFloat("Gender", (gender * 100) / 100.0f);
+            Debug.Log("gen" + (gender * 2 - 1));
+            animator.SetFloat("Gender", gender * 2 - 1);
         }
     }
     public void OpenSet()

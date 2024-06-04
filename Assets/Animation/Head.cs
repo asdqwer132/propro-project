@@ -45,9 +45,6 @@ public class Head : MonoBehaviour
 
     private void LateUpdate()
     {
-        animator.SetFloat("Age", Mathf.Sin(Time.time));
-        animator.SetFloat("Gender", Mathf.Cos(Time.time));
-
         //모든 머터리얼에 절단면 상태 전달
         Vector3 normal = crossSection.right;
         for (int i = 0; i < headRenderer.sharedMaterials.Length; i++)
