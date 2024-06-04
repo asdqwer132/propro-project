@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteAlways, RequireComponent(typeof(Animation))]
+[ExecuteAlways, RequireComponent(typeof(Animator), typeof(Animation))]
 public class Head : MonoBehaviour
 {
     //재생할 발음기호들
@@ -13,6 +13,7 @@ public class Head : MonoBehaviour
 
     //캐싱된 컴포넌트
     SkinnedMeshRenderer headRenderer;
+    Animator animator;
     Animation anim;
     [SerializeField]
     Transform crossSection;
@@ -24,6 +25,7 @@ public class Head : MonoBehaviour
     {
         //컴포넌트 캐싱
         headRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        animator = GetComponent<Animator>();
         anim = GetComponent<Animation>();
         //for (int i = 0; i < IpaArray.Length; i++)
         //{
@@ -43,6 +45,9 @@ public class Head : MonoBehaviour
 
     private void LateUpdate()
     {
+        animator.SetFloat("Age", Mathf.Sin(Time.time));
+        animator.SetFloat("Gender", Mathf.Cos(Time.time));
+
         //모든 머터리얼에 절단면 상태 전달
         Vector3 normal = crossSection.right;
         for (int i = 0; i < headRenderer.sharedMaterials.Length; i++)
