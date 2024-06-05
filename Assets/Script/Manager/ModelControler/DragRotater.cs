@@ -8,7 +8,7 @@ public class DragRotater : MonoBehaviour, IDragHandler
     //public enum Direction { left, right, up, down };
     public float rotateDragSpeed = 50;
     public float rotateBtnSpeed = 0.01f;
-    public GameObject target;
+    public GameObject[] target;
     string direction;
     public bool m_IsButtonDowning;
 
@@ -19,16 +19,20 @@ public class DragRotater : MonoBehaviour, IDragHandler
             switch (direction)
             {
                 case "left":
-                    target.transform.Rotate(0, rotateBtnSpeed, 0, Space.World);
+                    for(int i=0;i<target.Length;i++)
+                        target[i].transform.Rotate(0, rotateBtnSpeed, 0, Space.World);
                     break;
                 case "right":
-                    target.transform.Rotate(0, -rotateBtnSpeed, 0, Space.World);
+                    for (int i = 0; i < target.Length; i++)
+                        target[i].transform.Rotate(0, -rotateBtnSpeed, 0, Space.World);
                     break;
                 case "up":
-                    target.transform.Rotate(rotateBtnSpeed, 0, 0, Space.World);
+                    for (int i = 0; i < target.Length; i++)
+                        target[i].transform.Rotate(rotateBtnSpeed, 0, 0, Space.World);
                     break;
                 case "down":
-                    target.transform.Rotate(-rotateBtnSpeed, 0, 0, Space.World);
+                    for (int i = 0; i < target.Length; i++)
+                        target[i].transform.Rotate(-rotateBtnSpeed, 0, 0, Space.World);
                     break;
             }
             
@@ -38,7 +42,8 @@ public class DragRotater : MonoBehaviour, IDragHandler
     {
         float x = eventData.delta.x * Time.deltaTime * rotateDragSpeed;
         float y = eventData.delta.y * Time.deltaTime * rotateDragSpeed;
-        target.transform.Rotate(y, -x, 0, Space.World);
+        for (int i = 0; i < target.Length; i++)
+            target[i].transform.Rotate(y, -x, 0, Space.World);
     }
     public void PointerDown(string direction)
     {
