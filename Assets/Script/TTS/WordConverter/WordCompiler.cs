@@ -172,7 +172,12 @@ public class WordCompiler
         for (int i = 0; i < value.Length; i++)
         {
             string trimValue = value[i].Trim();
-            allIpa.Add(ConvertPhonemes(trimValue));
+            if (!allIpa.Contains(ConvertPhonemes(trimValue)))
+            {
+                Debug.Log(trimValue);
+                allIpa.Add(ConvertPhonemes(trimValue));
+            }
+           // else Debug.Log(trimValue + "is 중복");
         }
         string[] output = new string[allIpa.Count];
         for (int i = 0; i < allIpa.Count; i++)

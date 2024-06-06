@@ -67,10 +67,16 @@ public class Head : MonoBehaviour
 
         //1. 전체 애니메이션 클립 재생 시간 계산
         float totalDuration = 0f;
+        AnimationClip clip;
         for (int i = 0; i < IpaArray.Length; i++)
         {
-            Debug.Log(IpaArray[i] + "/" + anim.GetClip(IpaArray[i]));
-            totalDuration += anim.GetClip(IpaArray[i]).length;
+            clip = anim.GetClip(IpaArray[i]);
+            if (clip != null)
+            {
+                Debug.Log(IpaArray[i] + "/" + anim.GetClip(IpaArray[i]));
+                totalDuration += anim.GetClip(IpaArray[i]).length;
+            }
+            else Debug.Log(IpaArray[i] + " is null");
         }
         //애니메이션 간의 블렌딩 시간 빼기
         totalDuration -= (IpaArray.Length - 1) * blendingDuration;
@@ -80,11 +86,13 @@ public class Head : MonoBehaviour
 
         //3. 애니메이션 재생
         //첫 발음기호 재생 시작, 실행되는 모든 애니메이션을 정지
-        anim.Play(IpaArray[0]);
+        clip = anim.GetClip(IpaArray[0]);
+        if (clip != null) anim.Play(IpaArray[0]);
         for (int i = 1; i < IpaArray.Length; i++)
         {
+            clip = anim.GetClip(IpaArray[i]);
             //다음 발음기호 부터는 큐에 예약, 이전 애니메이션과 0.1초 블렌딩
-            anim.CrossFadeQueued(IpaArray[i], 0.1f);
+            if (clip != null) anim.CrossFadeQueued(IpaArray[i], 0.1f);
         }
     }
 }

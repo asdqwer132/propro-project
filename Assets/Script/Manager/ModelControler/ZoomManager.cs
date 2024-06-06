@@ -8,7 +8,8 @@ public class ZoomManager : MonoBehaviour
     public Transform model;
     public float maxSize;
     public float minSize;
-    public float offset = 5;
+    public float chanfeValue = 5;
+    public float offset = 0;
     float originSize;
     bool isZoomIn, isZoomOut;
     private void Start()
@@ -19,14 +20,21 @@ public class ZoomManager : MonoBehaviour
     {
         if (isZoomIn)
         {
-            if (maxSize > model.localScale.x) model.localScale = new Vector3(originSize + offset, originSize + offset, originSize + offset);
+            if (maxSize > model.localScale.x)
+            {
+                model.localScale = new Vector3(originSize + chanfeValue, originSize + chanfeValue, originSize + chanfeValue);
+            }
             originSize = model.localScale.x;
         }
         if (isZoomOut)
         {
-            if (minSize < model.localScale.x) model.localScale = new Vector3(originSize - offset, originSize - offset, originSize - offset);
+            if (minSize < model.localScale.x)
+            {
+                model.localScale = new Vector3(originSize - chanfeValue, originSize - chanfeValue, originSize - chanfeValue);
+            }
             originSize = model.localScale.x;
         }
+        model.localPosition = new Vector3(0, -(originSize / 10) + offset, 0);
     }
     public void PointUp() { isZoomOut = false; isZoomIn = false; }
 

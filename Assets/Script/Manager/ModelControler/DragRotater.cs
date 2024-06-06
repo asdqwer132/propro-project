@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class DragRotater : MonoBehaviour, IDragHandler
@@ -9,8 +10,9 @@ public class DragRotater : MonoBehaviour, IDragHandler
     public float rotateDragSpeed = 50;
     public float rotateBtnSpeed = 0.01f;
     public GameObject[] target;
+    public Toggle rotateTogether;
     string direction;
-    public bool m_IsButtonDowning;
+    bool m_IsButtonDowning;
 
     private void Update()
     {
@@ -19,20 +21,16 @@ public class DragRotater : MonoBehaviour, IDragHandler
             switch (direction)
             {
                 case "left":
-                    for(int i=0;i<target.Length;i++)
-                        target[i].transform.Rotate(0, rotateBtnSpeed, 0, Space.World);
+                    Rotate(0, rotateBtnSpeed, 0);
                     break;
                 case "right":
-                    for (int i = 0; i < target.Length; i++)
-                        target[i].transform.Rotate(0, -rotateBtnSpeed, 0, Space.World);
+                    Rotate(0, -rotateBtnSpeed, 0);
                     break;
                 case "up":
-                    for (int i = 0; i < target.Length; i++)
-                        target[i].transform.Rotate(rotateBtnSpeed, 0, 0, Space.World);
+                    Rotate(rotateBtnSpeed, 0, 0);
                     break;
                 case "down":
-                    for (int i = 0; i < target.Length; i++)
-                        target[i].transform.Rotate(-rotateBtnSpeed, 0, 0, Space.World);
+                    Rotate(-rotateBtnSpeed, 0, 0);
                     break;
             }
             
@@ -42,8 +40,24 @@ public class DragRotater : MonoBehaviour, IDragHandler
     {
         float x = eventData.delta.x * Time.deltaTime * rotateDragSpeed;
         float y = eventData.delta.y * Time.deltaTime * rotateDragSpeed;
-        for (int i = 0; i < target.Length; i++)
-            target[i].transform.Rotate(y, -x, 0, Space.World);
+        Rotate(y, -x, 0);
+    }
+    public void ResetRotate()
+    {
+        for (int i = 1; i < target.Length; i++)
+            target[i].transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0)); ;
+    }
+    void Rotate(float x, float y, float z)
+    {
+        target[0].transform.Rotate(x, y, z, Space.World);
+        if(rotateTogether != null)
+        {
+            if (rotateTogether.isOn)
+            {
+                for (int i = 1; i < target.Length; i++)
+                    target[i].transform.Rotate(x, y, z, Space.World);
+            }
+        }
     }
     public void PointerDown(string direction)
     {
