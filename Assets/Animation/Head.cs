@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 [ExecuteAlways, RequireComponent(typeof(Animator), typeof(Animation))]
 public class Head : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class Head : MonoBehaviour
     public string[] IpaArray;
     //음성 재생 시간
     public float Duration = 1f;
+    public Toggle toggle;
 
     //캐싱된 컴포넌트
     SkinnedMeshRenderer headRenderer;
@@ -29,11 +30,7 @@ public class Head : MonoBehaviour
         animator.SetFloat("Age", PlayerPrefs.GetFloat("Age"));
         animator.SetFloat("Gender", PlayerPrefs.GetFloat("Gender"));
         anim = GetComponent<Animation>();
-        //for (int i = 0; i < IpaArray.Length; i++)
-        //{
-        //    if (anim.GetClip(IpaArray[i]) == null) Debug.Log(IpaArray[i] + "is null");
-        //    else Debug.Log(IpaArray[i] + "/" + anim.GetClip(IpaArray[i]));
-        //}
+
     }
 
     void Update()
@@ -55,7 +52,13 @@ public class Head : MonoBehaviour
             headRenderer.sharedMaterials[i].SetFloat("_Distance", -Vector3.Dot(normal, crossSection.position));
         }
     }
-
+    public void ViewAll()
+    {
+        if (toggle.isOn)
+            crossSection.localPosition = new Vector3(-100f, -100f, -100f);
+        else
+            crossSection.localPosition = new Vector3(0, 0, 0);
+    }
     //발음기호 배열에 해당하는 애니메이션을 순차적으로 재생
     public void PlayAnimations()
     {
