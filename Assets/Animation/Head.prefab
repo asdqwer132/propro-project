@@ -107,7 +107,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 51df1dde683b8b649930ad783d9ab764,
         type: 3}
       propertyPath: m_Name
-      value: head_AnimTest
+      value: Head
       objectReference: {fileID: 0}
     - target: {fileID: 2223639932434330405, guid: 51df1dde683b8b649930ad783d9ab764,
         type: 3}
