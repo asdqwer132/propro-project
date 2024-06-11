@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Sentis;
@@ -26,6 +26,80 @@ public class RunJets : MonoBehaviour
     public string inputText = "Once upon a time, there lived a girl called Alice. She lived in a house in the woods.";
     //string inputText = "The quick brown fox jumped over the lazy dog";
     //string inputText = "There are many uses of the things she uses!";
+
+    readonly Dictionary<string, string> ipaDic = new Dictionary<string, string>()
+    {
+        { "ɑ" , "AA0 AA0"},
+        { "ɑː", "AA1 AA1"},
+        //{ "ɑ" , "AA2 AA2"},
+        { "æ" , "AE0 AE0"},
+        //{ "æ" , "AE1 AE1"},
+        //{ "æ" , "AE2 AE2"},
+        { "ə" , "AH0 AH0"},
+        { "ʌ" , "AH1 AH1"},
+        //{ "ʌ" , "AH2 AH2"},
+        //{ "ə" , "ER0 ER0"},
+        //{ "ə" , "ER1 ER1"},
+        //{ "ə" , "ER2 ER2"},
+        { "ɔ" , "AO0 AO0"},
+        { "ɔː", "AO1 AO1"},
+        //{ "ɔ" , "AO2 AO2"},
+        { "u" , "AW0 AW0"},
+        //{ "u" , "AW1 AW1"},
+        //{ "u" , "AW2 AW2"},
+        //{ "u" , "UH0 UH0"},
+        //{ "u" , "UH1 UH1"},
+        //{ "u" , "UH2 UH2"},
+        { "uː", "UW UW "},
+        //{ "u" , "UW0 UW0"},
+        //{ "uː", "UW1 UW1"},
+        //{ "u" , "UW2 UW2"},
+        { "iː", "AY0 AY0"},
+        //{ "iː", "AY1 AY1"},
+        //{ "iː", "AY2 AY2"},
+        //{ "iː", "IH0 IH0"},
+        //{ "iː", "IH1 IH1"},
+        //{ "iː", "IH2 IH2"},
+        { "i" , "IY0 IY0"},
+        //{ "iː", "IY1 IY1"},
+        //{ "i" , "IY2 IY2"},
+        { "b" , "B B"},
+        { "tʃ", "CH CH"},
+        { "d" , "D D"},
+        { "ð" , "DH DH"},
+        { "ɛ" , "EH0 EH0"},
+        //{ "ɛ" , "EH1 EH1"},
+        //{ "ɛ" , "EH2 EH2"},
+        { "e" , "EY0 EY0"},
+        //{ "e" , "EY1 EY1"},
+        //{ "e" , "EY2 EY2"},
+        { "f" , "F F"},
+        { "g" , "G G"},
+        { "h" , "HH HH"},
+        { "dʒ", "JH JH"},
+        { "k" , "K K"},
+        { "m" , "M M"},
+        { "n" , "N N"},
+        { "ŋ" , "NG NG"},
+        { "ou", "OW0 OW0"},
+        //{ "ou", "OW1 OW1"},
+        //{ "ou", "OW2 OW2"},
+        { "ɔi", "OY0 OY0"},
+        //{ "ɔi", "OY1 OY1"},
+        //{ "ɔi", "OY2 OY2"},
+        { "p" , "P P"},
+        { "ɹ" , "R R"},
+        { "s" , "S S"},
+        { "ʃ" , "SH SH"},
+        { "t" , "T T"},
+        { "θ" , "TH TH"},
+        { "v" , "V V"},
+        { "w" , "W W"},
+        { "j" , "Y Y"},
+        { "z" , "Z Z"},
+        { "ʒ" , "ZH ZH"},
+        { "l", "L L"},
+    };
 
     //Set to true if we have put the phoneme_dict.txt in the Assets/StreamingAssets folder
     bool hasPhenomeDictionary = true;
@@ -125,6 +199,11 @@ public class RunJets : MonoBehaviour
 
     public string TextToPhonemes(string text)
     {
+        if(ipaDic.ContainsKey(text))
+        {
+            return ipaDic[text];
+        }
+
         string output = "";
         text = ExpandNumbers(text).ToUpper();
 
